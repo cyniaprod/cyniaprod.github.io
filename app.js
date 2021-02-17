@@ -3,8 +3,40 @@ btn.addEventListener('click', run);
 
 
 function run() {
-    var characterList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789^¨$%ù!§:/;.-|~&[(])}{'\"\\çà@`è#é=";
+    var characterList = "";
+
+    const symbols = document.getElementById("symbols").checked;
+    const numbers = document.getElementById("numbers").checked;
+    const uppercase = document.getElementById("uppercase").checked;
+    const lowercase = document.getElementById("lowercase").checked;
+    const ambigous = document.getElementById("ambigous").checked;
+
+    if(lowercase) {
+        characterList += "abcdefghijklmnopqrstuvwxyz";
+    }
+
+    if(uppercase) {
+        characterList += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+
+    if(numbers) {
+        characterList += "0123456789";
+    }
+
+    if(symbols) {
+        characterList += "@#$%";
+    }
+
+    if(ambigous) {
+        characterList += "{}[]()/\'\"`~,;:.<>";
+    }
+
     var length = characterList.length;
+
+    if(length == 0) {
+        return null;
+    }
+
     var password = "";
     var size = document.getElementById("size").value;
     
