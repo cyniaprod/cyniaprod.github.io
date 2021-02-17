@@ -34,6 +34,7 @@ function run() {
     var length = characterList.length;
 
     if(length == 0) {
+        alert("You have to check at least one options");
         return null;
     }
 
